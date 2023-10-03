@@ -11,7 +11,7 @@ function ListOfCategories({
   categories: Category[];
   parentCategory?: string | null;
 }) {
-  const categoriesToRender = categories.filter(({parentId, id}) => {
+  const categoriesToRender = categories.filter(({parentId}) => {
     return parentCategory === parentId;
   });
 

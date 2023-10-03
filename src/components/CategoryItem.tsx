@@ -2,6 +2,7 @@
 import type {Category} from "@/models/category.interface";
 
 import {useState} from "react";
+import Link from "next/link";
 
 import ListOfCategories from "./CategoryList";
 
@@ -14,11 +15,11 @@ function CategoryItem({category, categories}: {category: Category; categories: C
   return (
     <li key={category.id} className="ml-2">
       {hasSubCategories ? (
-        <button type="button" onClick={handleClick}>
+        <button className="mr-2" type="button" onClick={handleClick}>
           {expanded ? "-" : "+"}
         </button>
       ) : null}
-      {category.name}
+      <Link href={`/${category.id}`}>{category.name}</Link>
       {expanded ? <ListOfCategories categories={categories} parentCategory={category.id} /> : null}
     </li>
   );

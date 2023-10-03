@@ -2,6 +2,8 @@ import type {Metadata} from "next";
 
 import "./globals.css";
 
+import Link from "next/link";
+
 import {getProducts} from "@/services/getProducts";
 import {getCategories} from "@/services/getCategories";
 import ListOfCategories from "@/components/CategoryList";
@@ -18,7 +20,9 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   return (
     <html lang="en">
       <body className="container m-auto grid min-h-screen grid-rows-[auto,1fr,auto] px-4">
-        <header className="text-xl font-bold leading-[3rem]">Migrado Libre</header>
+        <Link href="/">
+          <header className="text-xl font-bold leading-[3rem]">Migrado Libre</header>
+        </Link>
         <div className="grid grid-cols-[300px_1fr] gap-10">
           <aside>
             <ListOfCategories categories={categories} />
